@@ -1,0 +1,34 @@
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <!-- Start state -->
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@id/btnAnimate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:alpha="0.4"/>
+    </ConstraintSet>
+
+    <!-- End state -->
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@id/btnAnimate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:translationY="-100"
+            android:alpha="1.0"/>
+    </ConstraintSet>
+
+    <!-- Transition from start to end -->
+    <Transition
+        motion:constraintSetStart="@id/start"
+        motion:constraintSetEnd="@id/end"
+        motion:duration="1000"
+        motion:motionInterpolator="easeInOut">
+    </Transition>
+</MotionScene>
